@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>महिला एवं बाल सहायता</title>
+  <style>
+    *{
+        text-decoration: none;
+    }
+    body {
+      font-family: 'Noto Sans Devanagari', sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+    }
+    .container {
+      display: flex;
+      flex-direction: row;
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      min-height: 610px;
+    }
+    .left, .right {
+      padding: 20px;
+      width: 300px;
+    }
+    .left {
+      background-color: #fafafa;
+      border-right: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    .left h2 {
+      color: #d60000;
+    }
+    .left p {
+      margin: 20px 0;
+      font-size: 16px;
+    }
+    select, button {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      width: 100%;
+    }
+    button {
+      background-color: #d60000;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-bottom-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+    .contact-card {
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+    .contact-card h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .contact-card p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+    .contact-card a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+    .right{
+        width: 300px;
+    }
+    .header{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    padding-left: 4px;
+    padding-right: 4px;
+    width: 100%;
+    }
+    .header > a{
+        color: black;
+    }
+    .logo{
+        width: 100px;
+    }
+    *{
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-weight: bold;
+    }
+    button:hover{
+      background-color: aqua;
+      color: black;
+      transition: all 0.7s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="left">
+        <div class="header">
+            <a href="">HOME</a>
+            <a href="tel: 1098">मदद के लिए कॉल करें</a>
+         </div>
+      <h2>मदद के लिए कॉल करें</h2>
+      <img class="logo" src="/women and child.png" alt="">
+      <p>महिला एवं बाल सुरक्षा के बारे में सहारनपुर के सहायक सभी लोगों अथवा संस्थाओं के बारे में जानें</p>
+      <label for="block">ब्लॉक*</label>
+      <select id="block">
+        <option value="सढोलीकदीम">सढोली कदीम</option>
+        <option value="मुज़फ़्फ़राबाद">मुज़फ़्फ़राबाद</option>
+        <option value="पुंवारका">पुंवारका</option>
+        <option value="बलियाखेड़ी">बलियाखेड़ी</option>
+        <option value="नानौता">नानौता</option>
+        <option value="देवबंद">देवबंद</option>
+        <option value="रामपुर">रामपुर</option>
+        <option value="नागल">नागल</option>
+        <option value="नकुड़">नकुड़</option>
+        <option value="सरसांवा">सरसांवा</option>
+        <option value="गंगोह">गंगोह</option>
+        <option value="सहारनपुर">सहारनपुर</option>
+      </select>
+      <button onclick="findHelp()">मदद ढूंढे</button>
+    </div>
+    <div class="right">
+      <h2><a href="tel: 1098">मदद के लिए कॉल करें</a></h2>
+      <div id="contacts"></div>
+    </div>
+  </div>
+
+  <script>
+    const contactData = {
+      सढोलीकदीम: [
+        {
+          name: "नेहा शर्मा",
+          position: "महिला कल्याण अफ़सर",
+          phone: "8791947585",
+          whatsapp: "8791947585",
+          type: "सरकारी अधिकारी",
+          gender: "Female"
+        },
+        {
+          name: "बेबी रानी मौर्य",
+          position: "केबिनेट मन्त्री, महिला कल्याण बाल विकास एवं पुष्टाहार, उत्तर प्रदेश सरकार",
+          phone: "0522-2288532",
+          whatsapp: "9876543210",
+          address: "निदेशालय महिला कल्याण जवाहर भवन, अशोक मार्ग लखनऊ, उत्तर प्रदेश",
+          type: "सरकारी अधिकारी",
+          gender: "Female",
+          photo: '<img style="width: 80px; display: inline-block;" src="https://mahilakalyan.up.nic.in/Baby_Rani_Maurya.jpeg"'
+        }
+      ],
+      मुज़फ़्फ़राबाद: [
+        {
+          name: "श्रीमती प्रतिभा शुक्ला",
+          position: "राज्य मंत्री महिला कल्याण बाल विकास एवं पुष्टाहार",
+          phone: "9876543211",
+          whatsapp: "9876543211",
+          address: "ग्राम पंचायत कार्यालय, मुजफ्फराबाद, सहारनपुर",
+          type: "सरकारी अधिकारी",
+          gender: "Female",
+          photo: '<img style="width: 80px; display: inline-block;" src="https://mahilakalyan.up.nic.in/PrtibhaShukla.png"'
+        }
+      ],
+      पुंवारका: [
+        {
+          name: "सुनीता रानी",
+          position: "आपातकालीन संपर्क अधिकारी (सरकारी)",
+          phone: "9876543212",
+          whatsapp: "9876543212",
+          type: "सरकारी अधिकारी",
+          gender: "Female",
+          address: "पंचायत भवन, पुवरका, सहारनपुर",
+          photo: '<img style="width: 80px; display: inline-block;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnNj1A8jWVRvxws_Zw3Rn6KYDzEYIqtINtYQ&s"'
+        }
+      ],
+      बलियाखेड़ी: [
+        {
+          name: "राहुल अग्रवाल",
+          position: "सामुदायिक सहयोगी (सामाजिक)",
+          phone: "9876543213",
+          whatsapp: "9876543213",
+          type: "सामाजिक कार्यकर्ता",
+          gender: "Male",
+          address: "पंचायत भवन, बलिया खेडी, सहारनपुर",
+          photo: '<img style="width: 80px; display: inline-block;" src="https://media.istockphoto.com/id/1356281872/vector/happy-people-on-the-hand-care-logo.jpg?s=612x612&w=0&k=20&c=ebVD4uTDg-h6pta7AbJEVki32E_gVwsK1AkxvwjBXMA="'
+        }
+      ],
+      नानौता: [
+        {
+          name: "रचना पांडे",
+          position: "सुरक्षा प्रतिक्रिया समन्वयक (सरकारी)",
+          phone: "9876543214",
+          whatsapp: "9876543214",
+          type: "सरकारी अधिकारी",
+          gender: "Female",
+          address: "तहसील परिसर, ननौता, सहारनपुर",
+          photo: '<img style="width: 80px; display: inline-block;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnNj1A8jWVRvxws_Zw3Rn6KYDzEYIqtINtYQ&s"'
+        }
+      ],
+
+      देवबंद: [
+        {
+          name: "निधि टंडन",
+          position: "महिला सुरक्षा अधिकारी (सरकारी)",
+          phone: "9876543215",
+          whatsapp: "9876543215",
+          type: "सामाजिक कार्यकर्ता",
+          gender: "Female",
+          address: "ब्लॉक ऑफिस, देवबंद, सहारनपुर",
+          photo: '<img style="width: 80px; display: inline-block;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnNj1A8jWVRvxws_Zw3Rn6KYDzEYIqtINtYQ&s"'
+        }
+      ],
+      रामपुर: [
+        {
+          name: "अरुणा ठाकुर",
+          position: "महिला हेल्पलाइन समन्वयक (सामाजिक)",
+          phone: "9876543216",
+          whatsapp: "9876543216",
+          type: "सामाजिक कार्यकर्ता",
+          gender: "Female",
+          address: "ग्राम पंचायत कार्यालय, रामपुर मनिहारन, सहारनपुर",
+          photo: '<img style="width: 80px; display: inline-block;" src="https://media.istockphoto.com/id/1356281872/vector/happy-people-on-the-hand-care-logo.jpg?s=612x612&w=0&k=20&c=ebVD4uTDg-h6pta7AbJEVki32E_gVwsK1AkxvwjBXMA="'
+        }
+      ],
+      नागल: [
+        {
+          name: "श्वेता सक्सेना",
+          position: "महिला अधिकार कार्यकर्ता (NGO)",
+          phone: "9876543217",
+          whatsapp: "9876543217",
+          type: "NGO",
+          gender: "Female",
+          address: "ब्लॉक ऑफिस, नागल, सहारनपुर",
+          photo: '<img style="width: 80px; display: inline-block;" src="https://www.shutterstock.com/image-vector/ngo-earth-planet-hands-palm-260nw-1867730668.jpg"'
+        }
+      ],
+      नकुड़: [
+        {
+          name: "पूजा शर्मा",
+          position: "महिला सशक्तिकरण कार्यकर्ता (NGO)",
+          phone: "9876543218",
+          whatsapp: "9876543218",
+          type: "NGO",
+          gender: "Female",
+          address: "पुलिस चौकी, नकुड़, सहारनपुर",
+          photo: '<img style="width: 80px; display: inline-block;" src="https://www.shutterstock.com/image-vector/ngo-earth-planet-hands-palm-260nw-1867730668.jpg"'
+        }
+      ],
+      सरसांवा: [
+        {
+          name: "अनिल यादव",
+          position: "जिला सुरक्षा अधिकारी (सरकारी)",
+          phone: "9876543219",
+          whatsapp: "9876543219",
+          type: "सरकारी अधिकारी",
+          gender: "Male",
+          address: "ब्लॉक ऑफिस, सरसावा, सहारनपुर",
+          photo: '<img style="width: 80px; display: inline-block;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnNj1A8jWVRvxws_Zw3Rn6KYDzEYIqtINtYQ&s"'
+        }
+      ],
+      गंगोह: [
+        {
+          name: "रितेश सिंह",
+          position: "सामाजिक कार्यकर्ता (NGO)",
+          phone: "9876543220",
+          whatsapp: "9876543220",
+          type: "NGO",
+          gender: "Male",
+          address: "तहसील परिसर, गंगोह, सहारनपुर",
+          photo: '<img style="width: 80px; margin-left: 4px; display: inline-block;" src="https://www.shutterstock.com/image-vector/ngo-earth-planet-hands-palm-260nw-1867730668.jpg"'
+        }
+      ],
+      सहारनपुर: [
+        {
+          name: "राजीव चौधरी",
+          position: "जिला संरक्षण अधिकारी (सरकारी)",
+          phone: "9876543221",
+          whatsapp: "9876543221",
+          type: "सरकारी अधिकारी",
+          gender: "Male",
+          address: "जिला कार्यालय, सहारनपुर",
+          photo: '<img style="width: 80px; display: inline-block;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnNj1A8jWVRvxws_Zw3Rn6KYDzEYIqtINtYQ&s"'
+        }
+      ]
+      //extra to use it to important
+      //नानौता: [
+        //{
+          //name: "राहुल अग्रवाल",
+          //position: "सामुदायिक सहयोगी (सामाजिक)",
+          //phone: "9876543213",
+          //whatsapp: "9876543213",
+          //type: "सामाजिक कार्यकर्ता",
+          //gender: "Male",
+          //address: "पंचायत भवन, बलिया खेडी, सहारनपुर",
+          //photo: ""
+        //}
+      //],
+      //नानौता: [
+        //{
+          //name: "राहुल अग्रवाल",
+          //position: "सामुदायिक सहयोगी (सामाजिक)",
+          //phone: "9876543213",
+          //whatsapp: "9876543213",
+          //type: "सामाजिक कार्यकर्ता",
+          //gender: "Male",
+          //address: "पंचायत भवन, बलिया खेडी, सहारनपुर",
+          //photo: ""
+        //}
+      //]
+    };
+
+    function findHelp() {
+      const block = document.getElementById("block").value;
+      const contacts = contactData[block] || [];
+      const container = document.getElementById("contacts");
+      container.innerHTML = "";
+
+      contacts.forEach(contact => {
+        const card = document.createElement("div");
+        card.className = "contact-card";
+        card.innerHTML = `
+        <div style="display: flex">
+          <div style="display: flex; justify-content: space-between;">
+            <div>
+          <h3>${contact.name}</h3>
+          <p><span style="font-weight: bold;">Gender:</span> ${contact.gender}</p>
+          <p><span style="font-weight: bold;">Type:</span> ${contact.type}</p>
+          </div>
+          </div>
+          <div>
+           <p>${contact.photo}</p>
+           </div>
+           </div>
+          <p><span style="font-weight: bold;">Post:</span> ${contact.position}</p>
+          <h4 style="margin-top: 10px; margin-bottom: 10px;"><span style="font-weight: bold;">Address:</span>  ${contact.address}</h4>
+          <a href="tel:${contact.phone}">📞 कॉल करें</a>
+          ${contact.whatsapp ? `<a href="https://wa.me/${contact.whatsapp}" target="_blank"><img style="width: 20px;" src="data:image/png;base64,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"> WhatsApp</a>` : ""}
+        `;
+        container.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>
